@@ -23,3 +23,17 @@
 // arr.forEach((element)=> newArr.push(element * 2))
 
 // console.log(newArr)
+
+function calculateResult(input) {
+    // Evaluate the expression
+    let result = eval(input);
+  
+    // Check if the result has more than 15 characters
+    if (result.toString().length > 15) {
+      // If more than 15 characters, round it off to 15 characters
+      return parseFloat(result).toPrecision(15);
+    } else {
+      // If 15 characters or less, return the original result
+      return result;
+    }
+  }

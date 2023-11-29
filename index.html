@@ -43,7 +43,7 @@
             class="btn op"
             id="dot"
             data-value="."
-            onclick="display.value.includes('.') ? null : display.value === '' ? display.value += '0.' : null"
+            onclick="display.value.includes('.') || display.value[display.value.length-1] === '-' || display.value[display.value.length-1] === '+' || display.value[display.value.length-1] === '*' || display.value[display.value.length-1] === '/' || display.value[display.value.length-1] === '.' ? null : display.value === '' ? display.value += '0.' : display.value += '.'"
           />
           <input
             type="button"
@@ -51,7 +51,7 @@
             class="btn op"
             id="division"
             data-value="/"
-            onclick="display.value[display.value.length-1] === '/' ? null : display.value+='/'"
+            onclick="display.value[display.value.length-1] === '-' || display.value[display.value.length-1] === '+' || display.value[display.value.length-1] === '*' || display.value[display.value.length-1] === '/' || display.value[display.value.length-1] === '.' ? null : display.value+='/'"
           />
         </div>
         <div class="el">
@@ -85,7 +85,7 @@
             class="btn op"
             id="multiply"
             data-value="*"
-            onclick="display.value[display.value.length-1] === '*' ? null : display.value+='*'"
+            onclick="display.value.length === 12  ? null : display.value[display.value.length-1] === '-' || display.value[display.value.length-1] === '+' || display.value[display.value.length-1] === '*' || display.value[display.value.length-1] === '/' || display.value[display.value.length-1] === '.' ? null : display.value+='*'"
           />
         </div>
         <div class="el">
@@ -119,7 +119,7 @@
             class="btn op"
             id="minus"
             data-value="-"
-            onclick="display.value[display.value.length-1] === '-' ? null : display.value+='-'"
+            onclick="display.value[display.value.length-1] === '-' || display.value[display.value.length-1] === '+' || display.value[display.value.length-1] === '*' || display.value[display.value.length-1] === '/' || display.value[display.value.length-1] === '.' ? null : display.value+='-'"
           />
         </div>
         <div class="el">
@@ -153,7 +153,7 @@
             class="btn op"
             id="plus"
             data-value="+"
-            onclick="display.value[display.value.length-1] === '+' ? null : display.value+='+'"
+            onclick="display.value[display.value.length-1] === '-' || display.value[display.value.length-1] === '+' || display.value[display.value.length-1] === '*' || display.value[display.value.length-1] === '/' || display.value[display.value.length-1] === '.' ? null : display.value+='+'"
           />
         </div>
         <div class="el">
@@ -171,7 +171,7 @@
             class="btn equality"
             id="equality"
             data-value="="
-            onclick="display.value = eval(display.value)"
+            onclick="display.value = calculateResult(display.value)"
           />
         </div>
       </div>
